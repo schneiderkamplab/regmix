@@ -1,3 +1,13 @@
+# Local gen
+mixture_config/config_1m
+mixture_config/weight_distributions.png
+
+# data
+model_training/dfm_data/
+
+# Jetbrains
+.idea/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
