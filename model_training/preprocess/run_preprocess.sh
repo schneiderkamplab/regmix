@@ -1,4 +1,5 @@
-export DATASET_SHORT_NAME="the_pile"
+#export DATASET_SHORT_NAME="the_pile"
+export DATASET_SHORT_NAME="dfm"
 
 python download_dataset.py --dataset_name sail/regmix-data-sample
 # WARNING: you can choose to download the full dataset (around 1TB) by running the following command
