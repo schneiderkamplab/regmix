@@ -40,45 +40,56 @@ def get_token_distribution():
     # The prior distribution of the token may be changed due to the tokenizer
     # If you want to get the token distribution following the TinyLlama codebase, you can use the 
     # script 
+    # train = {
+    #     "train_the_pile_arxiv": 0.113285273,
+    #     "train_the_pile_freelaw": 0.079608651,
+    #     "train_the_pile_nih_exporter": 0.003913491,
+    #     "train_the_pile_pubmed_central": 0.185375901,
+    #     "train_the_pile_wikipedia_en": 0.051081359,
+    #     "train_the_pile_dm_mathematics": 0.015962925,
+    #     "train_the_pile_github": 0.101750772,
+    #     "train_the_pile_philpapers": 0.003707518,
+    #     "train_the_pile_stackexchange": 0.066529351,
+    #     "train_the_pile_enron_emails": 0.001750772,
+    #     "train_the_pile_gutenberg_pg_19": 0.027085479,
+    #     "train_the_pile_pile_cc": 0.236869207,
+    #     "train_the_pile_ubuntu_irc": 0.01184346,
+    #     "train_the_pile_europarl": 0.007929969,
+    #     "train_the_pile_hackernews": 0.008032956,
+    #     "train_the_pile_pubmed_abstracts": 0.038825953,
+    #     "train_the_pile_uspto_backgrounds": 0.046446962
+    # }
+
     train = {
-        "train_the_pile_arxiv": 0.113285273,
-        "train_the_pile_freelaw": 0.079608651,
-        "train_the_pile_nih_exporter": 0.003913491,
-        "train_the_pile_pubmed_central": 0.185375901,
-        "train_the_pile_wikipedia_en": 0.051081359,
-        "train_the_pile_dm_mathematics": 0.015962925,
-        "train_the_pile_github": 0.101750772,
-        "train_the_pile_philpapers": 0.003707518,
-        "train_the_pile_stackexchange": 0.066529351,
-        "train_the_pile_enron_emails": 0.001750772,
-        "train_the_pile_gutenberg_pg_19": 0.027085479,
-        "train_the_pile_pile_cc": 0.236869207,
-        "train_the_pile_ubuntu_irc": 0.01184346,
-        "train_the_pile_europarl": 0.007929969,
-        "train_the_pile_hackernews": 0.008032956,
-        "train_the_pile_pubmed_abstracts": 0.038825953,
-        "train_the_pile_uspto_backgrounds": 0.046446962
+        "train_dfm_memo": 0.34,
+        "train_dfm_minhash": 0.33,
+        "train_dfm_sent": 0.33,
     }
 
+
     # valid cannot be ignored if you want the generated config is evaluated on the target set
+    # valid = {
+    #     "valid_the_pile_arxiv": 1.0,
+    #     "valid_the_pile_dm_mathematics": 1.0,
+    #     "valid_the_pile_enron_emails": 1.0,
+    #     "valid_the_pile_europarl": 1.0,
+    #     "valid_the_pile_freelaw": 1.0,
+    #     "valid_the_pile_github": 1.0,
+    #     "valid_the_pile_gutenberg_pg_19": 1.0,
+    #     "valid_the_pile_hackernews": 1.0,
+    #     "valid_the_pile_nih_exporter": 1.0,
+    #     "valid_the_pile_philpapers": 1.0,
+    #     "valid_the_pile_pile_cc": 1.0,
+    #     "valid_the_pile_pubmed_abstracts": 1.0,
+    #     "valid_the_pile_pubmed_central": 1.0,
+    #     "valid_the_pile_stackexchange": 1.0,
+    #     "valid_the_pile_ubuntu_irc": 1.0,
+    #     "valid_the_pile_uspto_backgrounds": 1.0,
+    #     "valid_the_pile_wikipedia_en": 1.0
+    # }
+
     valid = {
-        "valid_the_pile_arxiv": 1.0,
-        "valid_the_pile_dm_mathematics": 1.0,
-        "valid_the_pile_enron_emails": 1.0,
-        "valid_the_pile_europarl": 1.0,
-        "valid_the_pile_freelaw": 1.0,
-        "valid_the_pile_github": 1.0,
-        "valid_the_pile_gutenberg_pg_19": 1.0,
-        "valid_the_pile_hackernews": 1.0,
-        "valid_the_pile_nih_exporter": 1.0,
-        "valid_the_pile_philpapers": 1.0,
-        "valid_the_pile_pile_cc": 1.0,
-        "valid_the_pile_pubmed_abstracts": 1.0,
-        "valid_the_pile_pubmed_central": 1.0,
-        "valid_the_pile_stackexchange": 1.0,
-        "valid_the_pile_ubuntu_irc": 1.0,
-        "valid_the_pile_uspto_backgrounds": 1.0,
-        "valid_the_pile_wikipedia_en": 1.0
+        "valid_dfm_sent": 1.0,
     }
     return {"train": train, "valid": valid}
 
