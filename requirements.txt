@@ -1,3 +1,4 @@
+# training
 torch>=2.1.0dev
 lightning==2.1.2
 lightning[app]
@@ -9,7 +10,7 @@ sentencepiece
 wandb
 zstd
 
-# for finetuning
+# finetuning
 bitsandbytes==0.40.0
 transformers==4.31.0
 peft==0.4.0
@@ -23,3 +24,12 @@ wandb==0.15.3
 # indirectly needed
 accelerate
 xformers
+
+# others
+seaborn
+IPython
+lightgbm
+dotenv
+numpy
+matplotlib
+pyyaml
