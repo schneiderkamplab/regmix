@@ -1,6 +1,6 @@
-export WANDB_PROJECT=data_mix
-export WANDB_ENTITY=gbar
-export WANDB_API_KEY=$(cat .env | grep WANDB_API_KEY | cut -d '=' -f2)
+export WANDB_PROJECT=$(cat ../.env | grep WANDB_PROJECT | cut -d '=' -f2)
+export WANDB_ENTITY=$(cat ../.env | grep WANDB_ENTITY | cut -d '=' -f2)
+export WANDB_API_KEY=$(cat ../.env | grep WANDB_API_KEY | cut -d '=' -f2)
 
 export MODEL_NAME=tinyllama_1M_n$1
 export WANDB_NAME=$MODEL_NAME

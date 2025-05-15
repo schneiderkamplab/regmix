@@ -5,15 +5,18 @@ import yaml
 import os
 from copy import copy
 import argparse
+from dotenv import find_dotenv, load_dotenv
+
+if not load_dotenv("../.env"):
+    raise RuntimeError("Failed to load .env file")
 
 # find your API key at https://wandb.ai/authorize
-WANDB_API_KEY = "YOUR_API_KEY"
+WANDB_API_KEY = os.getenv("WANDB_API_KEY")
 # Project is specified by <entity/project-name>
-RPOJECT_NAME = "YOUR_PROJECT_NAME"
+RPOJECT_NAME = os.getenv("WANDB_PROJECT")
 
 # by default we only take the pile cc val loss, and you can also choose other as the target
-KEY_METRICS = ["metric/the_pile_pile_cc_val_loss",
-               "metric/train_loss"]
+KEY_METRICS = ["metric/the_pile_pile_cc_val_loss", "metric/train_loss"] # TODO check loss name on wandb
 
 # this is the prefix for the wandb runs
 RUN_NAME_PREFIX = "tinyllama_1M_n"
