@@ -11,7 +11,7 @@ export CONFIG_INDEX=$1
 # Force output to be displayed
 export PYTHONUNBUFFERED=1
 
-fabric run pretrain/tinyllama.py \
+lightning run model pretrain/tinyllama.py \
     --node-rank=0  \
     --main-address=127.0.0.1 \
     --accelerator=cuda \
