@@ -35,8 +35,8 @@ group_level_sampling = False
 only_save_model = False
 
 # Hyperparameters
-total_devices = 3 # TODO: changed from 8 to 3
-num_of_devices = 3 # TODO: changed from 8 to 3
+total_devices = 8
+num_of_devices = 8
 num_of_nodes = total_devices // num_of_devices if total_devices >= num_of_devices else 1
 # optimal tokens should be 10^20
 global_batch_size = 512
@@ -461,7 +461,7 @@ def create_train_dataloader(
     # check the validness
     for idx in range(len(data_config) - 1, -1, -1):
         prefix = data_config[idx][0]
-        filenames = sorted(glob.glob(str(data_dir / f"{prefix}-*")))
+        filenames = sorted(glob.glob(str(data_dir / f"{prefix}_*")))
         print(f"data dir: {data_dir}")
         print(f"prefix: {prefix}")
         print(f"filenames: {filenames}")
