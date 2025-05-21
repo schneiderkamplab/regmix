@@ -1,6 +1,7 @@
 # Local gen
 mixture_config/config_1m
 mixture_config/weight_distributions.png
+gen_doc/
 
 # data
 model_training/dfm_data/
