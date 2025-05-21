@@ -461,7 +461,7 @@ def create_train_dataloader(
     # check the validness
     for idx in range(len(data_config) - 1, -1, -1):
         prefix = data_config[idx][0]
-        filenames = sorted(glob.glob(str(data_dir / f"{prefix}_*")))
+        filenames = sorted(glob.glob(str(data_dir / f"{prefix}-*")))
         print(f"data dir: {data_dir}")
         print(f"prefix: {prefix}")
         print(f"filenames: {filenames}")
