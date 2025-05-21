@@ -462,10 +462,6 @@ def create_train_dataloader(
     for idx in range(len(data_config) - 1, -1, -1):
         prefix = data_config[idx][0]
         filenames = sorted(glob.glob(str(data_dir / f"{prefix}-*")))
-        print(f"data dir: {data_dir}")
-        print(f"prefix: {prefix}")
-        print(f"filenames: {filenames}")
-        print(f"total_devices: {total_devices}")
         if len(filenames) < total_devices:
             fabric.print("skip dataset {}".format(prefix))
             del data_config[idx]
