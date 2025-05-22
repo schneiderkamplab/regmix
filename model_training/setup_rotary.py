@@ -18,6 +18,7 @@ custom_include_paths = [
     '/home/ucloud/miniforge3/envs/regmix310/lib/python3.10/site-packages/torch/include/cuda',
     '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusparse/include',
     '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cublas/include',
+    '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusolver/include/'
 ]
 
 
@@ -126,6 +127,7 @@ ext_modules.append(
                 '-I/home/ucloud/miniforge3/envs/regmix310/lib/python3.10/site-packages/torch/include/ATen/cuda',
                 '-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusparse/include',
                 '-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cublas/include',
+                '-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusolver/include/',
                             ] + cc_flag)
                            }
     )
