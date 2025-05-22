@@ -12,6 +12,14 @@ import subprocess
 # ninja build does not work unless include_dirs are abs path
 this_dir = os.path.dirname(os.path.abspath(__file__))
 
+custom_include_paths = [
+    this_dir,
+    '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/curand/include',
+    '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cublas/include',
+    '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusolver/include/',
+    '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusparse/include',
+]
+
 
 def get_cuda_bare_metal_version(cuda_dir):
     raw_output = subprocess.check_output([cuda_dir + "/bin/nvcc", "-V"], universal_newlines=True)
@@ -121,12 +129,18 @@ ext_modules.append(
         extra_compile_args={
             "cxx": ["-O3"] + generator_flag,
             "nvcc": append_nvcc_threads(
-                ["-O3"]
+                [
+                    "-O3",
+                    "-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/curand/include",
+                    "-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cublas/include",
+                    "-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusolver/include/",
+                    "-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusparse/include"
+                ]
                 + generator_flag
                 + cc_flag
             ),
         },
-        include_dirs=[this_dir],
+        include_dirs=custom_include_paths,  # Added include paths
     )
 )
 
