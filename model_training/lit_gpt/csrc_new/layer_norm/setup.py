@@ -13,6 +13,7 @@ import subprocess
 this_dir = os.path.dirname(os.path.abspath(__file__))
 
 custom_include_paths = [
+    this_dir,
     '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/curand/include',
 ]
 
@@ -197,7 +198,7 @@ ext_modules.append(
                 + cc_flag
             ),
         },
-        include_dirs=[this_dir, custom_include_paths],
+        include_dirs=custom_include_paths,
     )
 )
 
