@@ -18,8 +18,8 @@ lightning run model pretrain/tinyllama.py \
     --num-nodes=1 \
     --devices=$NUMBER_OF_GPUS \
     --devices $NUMBER_OF_GPUS \
-    --train_data_dir dfm_data/train \
-    --val_data_dir dfm_data/valid \
+    --train_data_dir dfm_dataset_preproc/train \
+    --val_data_dir dfm_dataset_preproc/valid \
     --data_yaml_file ../mixture_config/config_1m/n$CONFIG_INDEX.yaml \
     --out_name $MODEL_NAME \
     --resume True
