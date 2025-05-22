@@ -12,6 +12,14 @@ import subprocess
 # ninja build does not work unless include_dirs are abs path
 this_dir = os.path.dirname(os.path.abspath(__file__))
 
+custom_include_paths = [
+    '/home/ucloud/miniforge3/envs/regmix310/lib/python3.10/site-packages/torch/include',
+    '/home/ucloud/miniforge3/envs/regmix310/lib/python3.10/site-packages/torch/include/ATen/cuda',
+    '/home/ucloud/miniforge3/envs/regmix310/lib/python3.10/site-packages/torch/include/cuda',
+    '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusparse/include',
+    '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cublas/include',
+]
+
 
 def get_cuda_bare_metal_version(cuda_dir):
     raw_output = subprocess.check_output([cuda_dir + "/bin/nvcc", "-V"], universal_newlines=True)
@@ -110,9 +118,14 @@ ext_modules.append(
             'rotary.cpp',
             'rotary_cuda.cu',
         ],
+        include_dirs=custom_include_paths, # Added include paths
         extra_compile_args={'cxx': ['-g', '-march=native', '-funroll-loops'],
                             'nvcc': append_nvcc_threads([
-                                '-O3', '--use_fast_math', '--expt-extended-lambda'
+                                '-O3', '--use_fast_math', '--expt-extended-lambda',
+                # Added include paths
+                '-I/home/ucloud/miniforge3/envs/regmix310/lib/python3.10/site-packages/torch/include/ATen/cuda',
+                '-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusparse/include',
+                '-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cublas/include',
                             ] + cc_flag)
                            }
     )
