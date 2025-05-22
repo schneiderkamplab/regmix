@@ -16,7 +16,8 @@ WANDB_API_KEY = os.getenv("WANDB_API_KEY")
 RPOJECT_NAME = os.getenv("WANDB_PROJECT")
 
 # by default we only take the pile cc val loss, and you can also choose other as the target
-KEY_METRICS = ["metric/the_pile_pile_cc_val_loss", "metric/train_loss"] # TODO check loss name on wandb
+# KEY_METRICS = ["metric/the_pile_pile_cc_val_loss", "metric/train_loss"]
+KEY_METRICS = ["metric/dfm_sent_val_loss", "metric/train_loss"] # metrics updated
 
 # this is the prefix for the wandb runs
 RUN_NAME_PREFIX = "tinyllama_1M_n"
