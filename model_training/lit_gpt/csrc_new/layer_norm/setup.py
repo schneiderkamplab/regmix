@@ -15,7 +15,9 @@ this_dir = os.path.dirname(os.path.abspath(__file__))
 custom_include_paths = [
     this_dir,
     '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/curand/include',
-    '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cublas/include'
+    '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cublas/include',
+    '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusolver/include/',
+    '/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusparse/include',
 ]
 
 
@@ -195,6 +197,8 @@ ext_modules.append(
                     "--use_fast_math",
                     "-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/curand/include",
                     "-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cublas/include",
+                    "-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusolver/include/",
+                    "-I/work/data-mix/.home/miniforge3/envs/regmix310/lib/python3.10/site-packages/nvidia/cusparse/include"
                 ]
                 + generator_flag
                 + cc_flag
